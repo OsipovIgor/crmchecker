@@ -1,0 +1,10 @@
+D:\Projects\crmchecker\CrmParser\bin\Debug\CrmParser.exe.config
+D:\Projects\crmchecker\CrmParser\obj\Debug\CrmParser.csprojResolveAssemblyReference.cache
+D:\Projects\crmchecker\CrmParser\obj\Debug\CrmParser.Form1.resources
+D:\Projects\crmchecker\CrmParser\obj\Debug\CrmParser.Properties.Resources.resources
+D:\Projects\crmchecker\CrmParser\obj\Debug\CrmParser.csproj.GenerateResource.Cache
+D:\Projects\crmchecker\CrmParser\bin\Debug\CrmParser.exe
+D:\Projects\crmchecker\CrmParser\bin\Debug\CrmParser.pdb
+D:\Projects\crmchecker\CrmParser\bin\Debug\HtmlAgilityPack.dll
+D:\Projects\crmchecker\CrmParser\obj\Debug\CrmParser.exe
+D:\Projects\crmchecker\CrmParser\obj\Debug\CrmParser.pdb
