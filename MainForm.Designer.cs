@@ -35,6 +35,7 @@
             this.labelLost1C = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.labelFree1C = new System.Windows.Forms.Label();
+            this.btnSettings = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Thread
@@ -78,12 +79,23 @@
             this.labelFree1C.Size = new System.Drawing.Size(0, 20);
             this.labelFree1C.TabIndex = 1;
             // 
+            // btnSettings
+            // 
+            this.btnSettings.Location = new System.Drawing.Point(1, 2);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(20, 20);
+            this.btnSettings.TabIndex = 2;
+            this.btnSettings.Text = "m";
+            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(135, 84);
             this.ControlBox = false;
+            this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.labelFree1C);
             this.Controls.Add(this.labelLost1C);
@@ -102,11 +114,12 @@
         #endregion
 
         private System.ComponentModel.BackgroundWorker Thread;
-        private System.Windows.Forms.Label labelWait1C;
+        public System.Windows.Forms.Label labelWait1C;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label labelLost1C;
+        public System.Windows.Forms.Label labelLost1C;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Label labelFree1C;
+        public System.Windows.Forms.Label labelFree1C;
+        private System.Windows.Forms.Button btnSettings;
     }
 }
 

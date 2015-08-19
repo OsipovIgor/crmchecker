@@ -21,6 +21,8 @@ namespace CrmParser
             
         }
 
+        readonly SettingsForm _form = new SettingsForm();
+        
         protected override void WndProc(ref Message m)
         {
             base.WndProc(ref m);
@@ -29,8 +31,6 @@ namespace CrmParser
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-
             TopMost = true;
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
@@ -86,6 +86,12 @@ namespace CrmParser
             int width = Size.Width;
             const int BTN_SIZE = 20;
             btnClose.Location = new Point(width - BTN_SIZE * 2, 0);
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            _form.Owner = this;
+            _form.ShowDialog(this);
         }
 
     }
