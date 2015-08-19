@@ -1,9 +1,0 @@
-D:\Projects\crmchecker\CrmParser\bin\Release\CrmParser.exe.config
-D:\Projects\crmchecker\CrmParser\bin\Release\CrmParser.exe
-D:\Projects\crmchecker\CrmParser\bin\Release\CrmParser.pdb
-D:\Projects\crmchecker\CrmParser\obj\Release\CrmParser.Form1.resources
-D:\Projects\crmchecker\CrmParser\obj\Release\CrmParser.Properties.Resources.resources
-D:\Projects\crmchecker\CrmParser\obj\Release\CrmParser.csproj.GenerateResource.Cache
-D:\Projects\crmchecker\CrmParser\obj\Release\CrmParser.exe
-D:\Projects\crmchecker\CrmParser\obj\Release\CrmParser.pdb
-D:\Projects\crmchecker\CrmParser\obj\Release\CrmParser.csprojResolveAssemblyReference.cache
