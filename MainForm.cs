@@ -54,8 +54,8 @@ namespace CrmParser
             string request = Download("http://panel.support.voip.astralnalog.ru/table?queue=Q1co-crm");
             HtmlDocument document = new HtmlDocument();
             document.LoadHtml(request);
-            IEnumerable<IEnumerable<HtmlNode>> innerText = document.GetElementbyId("header").Descendants("tr").Select(x => x.Elements("td"));
-            List<string> result = (from t in innerText from htmlNode in t select htmlNode.InnerHtml).ToList();
+            IEnumerable<HtmlNode> innerText = document.GetElementbyId("header").Descendants("tr").Select(x => x.Elements("td")).FirstOrDefault();
+            List<string> result = (from t in innerText select t.InnerHtml).ToList();
 
             return result;
         }
