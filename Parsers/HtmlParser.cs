@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using HtmlAgilityPack;
 
-namespace CrmParser
+namespace CrmParser.Parsers
 {
     /// <summary>
     /// Класс для парсинга сайта
@@ -27,6 +26,15 @@ namespace CrmParser
             return result;
         }
 
+        public IEnumerable<IEnumerable<HtmlNode>> GetOperatorsData()
+        {
+            string request = Download("http://panel.support.voip.astralnalog.ru/table?queue=Q1co-crm");
+            HtmlDocument document = new HtmlDocument();
+            document.LoadHtml(request);
+            var innerText = document.GetElementbyId("data").Descendants("tr").Select(x => x.Elements("td"));
+            return innerText;
+        }
+
         /// <summary>
         /// Метод возвращает страницу в виде HTML
         /// </summary>
@@ -36,7 +44,7 @@ namespace CrmParser
         {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(uri);
             request.Method = "GET";
-            String result = String.Empty;
+            string result;
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
             {
                 Stream dataStream = response.GetResponseStream();

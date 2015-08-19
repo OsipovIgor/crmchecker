@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.chbxWait = new System.Windows.Forms.CheckBox();
-            this.chbxFree = new System.Windows.Forms.CheckBox();
             this.chbxLost = new System.Windows.Forms.CheckBox();
+            this.chbxFree = new System.Windows.Forms.CheckBox();
+            this.chbxWait = new System.Windows.Forms.CheckBox();
             this.btnComfirm = new System.Windows.Forms.Button();
+            this.lblPhone = new System.Windows.Forms.Label();
+            this.tbPhone = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,17 +50,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Отображать";
             // 
-            // chbxWait
+            // chbxLost
             // 
-            this.chbxWait.AutoSize = true;
-            this.chbxWait.Checked = true;
-            this.chbxWait.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbxWait.Location = new System.Drawing.Point(6, 19);
-            this.chbxWait.Name = "chbxWait";
-            this.chbxWait.Size = new System.Drawing.Size(54, 17);
-            this.chbxWait.TabIndex = 0;
-            this.chbxWait.Text = "WAIT";
-            this.chbxWait.UseVisualStyleBackColor = true;
+            this.chbxLost.AutoSize = true;
+            this.chbxLost.Checked = true;
+            this.chbxLost.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbxLost.Location = new System.Drawing.Point(6, 65);
+            this.chbxLost.Name = "chbxLost";
+            this.chbxLost.Size = new System.Drawing.Size(54, 17);
+            this.chbxLost.TabIndex = 0;
+            this.chbxLost.Text = "LOST";
+            this.chbxLost.UseVisualStyleBackColor = true;
             // 
             // chbxFree
             // 
@@ -72,17 +74,17 @@
             this.chbxFree.Text = "FREE";
             this.chbxFree.UseVisualStyleBackColor = true;
             // 
-            // chbxLost
+            // chbxWait
             // 
-            this.chbxLost.AutoSize = true;
-            this.chbxLost.Checked = true;
-            this.chbxLost.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbxLost.Location = new System.Drawing.Point(6, 65);
-            this.chbxLost.Name = "chbxLost";
-            this.chbxLost.Size = new System.Drawing.Size(54, 17);
-            this.chbxLost.TabIndex = 0;
-            this.chbxLost.Text = "LOST";
-            this.chbxLost.UseVisualStyleBackColor = true;
+            this.chbxWait.AutoSize = true;
+            this.chbxWait.Checked = true;
+            this.chbxWait.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbxWait.Location = new System.Drawing.Point(6, 19);
+            this.chbxWait.Name = "chbxWait";
+            this.chbxWait.Size = new System.Drawing.Size(54, 17);
+            this.chbxWait.TabIndex = 0;
+            this.chbxWait.Text = "WAIT";
+            this.chbxWait.UseVisualStyleBackColor = true;
             // 
             // btnComfirm
             // 
@@ -94,11 +96,29 @@
             this.btnComfirm.UseVisualStyleBackColor = true;
             this.btnComfirm.Click += new System.EventHandler(this.btnComfirm_Click);
             // 
+            // lblPhone
+            // 
+            this.lblPhone.AutoSize = true;
+            this.lblPhone.Location = new System.Drawing.Point(93, 124);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(31, 13);
+            this.lblPhone.TabIndex = 3;
+            this.lblPhone.Text = "Доб.";
+            // 
+            // tbPhone
+            // 
+            this.tbPhone.Location = new System.Drawing.Point(127, 120);
+            this.tbPhone.Name = "tbPhone";
+            this.tbPhone.Size = new System.Drawing.Size(80, 20);
+            this.tbPhone.TabIndex = 4;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(222, 150);
+            this.Controls.Add(this.tbPhone);
+            this.Controls.Add(this.lblPhone);
             this.Controls.Add(this.btnComfirm);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -107,6 +127,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -117,5 +138,7 @@
         private System.Windows.Forms.CheckBox chbxFree;
         private System.Windows.Forms.CheckBox chbxWait;
         private System.Windows.Forms.Button btnComfirm;
+        private System.Windows.Forms.Label lblPhone;
+        private System.Windows.Forms.TextBox tbPhone;
     }
 }

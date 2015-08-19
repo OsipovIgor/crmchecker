@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Net;
 using System.Windows.Forms;
-using HtmlAgilityPack;
-using HtmlDocument = HtmlAgilityPack.HtmlDocument;
+using CrmParser.Data;
+using CrmParser.Parsers;
 
 namespace CrmParser
 {
@@ -22,7 +18,8 @@ namespace CrmParser
         }
 
         readonly SettingsForm _form = new SettingsForm();
-        
+        public OperatorInfo OperatorInfo;
+
         protected override void WndProc(ref Message m)
         {
             base.WndProc(ref m);
@@ -40,14 +37,21 @@ namespace CrmParser
 
         void timer1_Tick(object sender, EventArgs e)
         {
-            HtmlParser htmlParser = new HtmlParser();
-            var res = htmlParser.GetHeaderData();
-            labelWait1C.Text = res[3];
-            labelWait1C.ForeColor = !res[3].Contains("WAIT 0") ? Color.Red : Color.Black;
-            labelLost1C.Text = res[6];
-            int lastIndex = res[2].LastIndexOf('>');
+            HeaderInfo headerInfo = new HeaderInfo();
+            labelWait1C.Text = headerInfo.WaitClients;
+            labelWait1C.ForeColor = !headerInfo.WaitClients.Contains("WAIT 0") ? Color.Red : Color.Black;
+            labelLost1C.Text = headerInfo.LostClients;
 
-            labelFree1C.Text = string.Format("FREE: {0}",res[2].Substring(lastIndex+1)); 
+            labelFree1C.Text = headerInfo.FreeAbonents;
+
+            if (OperatorInfo != null)
+            {
+                label1.Text = OperatorInfo.CountAnswered;
+                label2.Text = OperatorInfo.PauseStatus;
+                label3.Text = OperatorInfo.PauseTime;
+                label4.Text = OperatorInfo.PhoneNumber;
+                label5.Text = OperatorInfo.WorkTime;
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
