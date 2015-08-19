@@ -10,12 +10,12 @@ using HtmlDocument = HtmlAgilityPack.HtmlDocument;
 
 namespace CrmParser
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         const int WM_NCHITTEST = 0x84;
         const int HTCAPTION = 2;
         const int HTCLIENT = 1;
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             
@@ -29,6 +29,8 @@ namespace CrmParser
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+
             TopMost = true;
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
@@ -74,9 +76,16 @@ namespace CrmParser
             return test;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            int width = Size.Width;
+            const int BTN_SIZE = 20;
+            btnClose.Location = new Point(width - BTN_SIZE * 2, 0);
         }
 
     }
