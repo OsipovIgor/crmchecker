@@ -10,30 +10,6 @@ namespace CrmParser
             InitializeComponent();
         }
 
-        public bool IsCheckedFree
-        {
-            get
-            {
-                return chbxFree.Checked;
-            }
-        }
-
-        public bool IsCheckedWait
-        {
-            get
-            {
-                return chbxWait.Checked;
-            }
-        }
-
-        public bool IsCheckedLost
-        {
-            get
-            {
-                return chbxLost.Checked;
-            }
-        }
-
         private void btnComfirm_Click(object sender, EventArgs e)
         {
             MainForm form = Owner as MainForm;
