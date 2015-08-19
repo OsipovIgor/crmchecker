@@ -101,7 +101,7 @@
             this.Controls.Add(this.labelLost1C);
             this.Controls.Add(this.labelWait1C);
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(150, 100);
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.Load += new System.EventHandler(this.Form1_Load);
