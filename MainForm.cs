@@ -46,11 +46,11 @@ namespace CrmParser
 
             if (OperatorInfo != null)
             {
-                label1.Text = OperatorInfo.CountAnswered;
-                label2.Text = OperatorInfo.PauseStatus;
-                label3.Text = OperatorInfo.PauseTime;
-                label4.Text = OperatorInfo.PhoneNumber;
-                label5.Text = OperatorInfo.WorkTime;
+                lblCountAnswered.Text = OperatorInfo.CountAnswered;
+                lblPauseStatus.Text = OperatorInfo.PauseStatus;
+                lblPauseTime.Text = OperatorInfo.PauseTime;
+                lblPhoneNumber.Text = OperatorInfo.PhoneNumber;
+                lblWorkTime.Text = OperatorInfo.WorkTime;
             }
         }
 
