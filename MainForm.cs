@@ -19,6 +19,7 @@ namespace CrmParser
 
         readonly SettingsForm _form = new SettingsForm();
         public OperatorInfo OperatorInfo;
+        public string OperatorPhone = string.Empty;
 
         protected override void WndProc(ref Message m)
         {
@@ -28,8 +29,9 @@ namespace CrmParser
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            _form.Owner = this;
             TopMost = true;
-            timer1.Interval = 1000;
+            timer1.Interval = 4000;
             timer1.Tick += timer1_Tick;
             timer1.Enabled = true;
 
@@ -43,7 +45,9 @@ namespace CrmParser
             labelLost1C.Text = headerInfo.LostClients;
 
             labelFree1C.Text = headerInfo.FreeAbonents;
-
+            
+            
+            OperatorInfo = _form.GetInfo();
             if (OperatorInfo != null)
             {
                 lblCountAnswered.Text = OperatorInfo.CountAnswered;
@@ -68,7 +72,6 @@ namespace CrmParser
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            _form.Owner = this;
             _form.ShowDialog(this);
         }
 
