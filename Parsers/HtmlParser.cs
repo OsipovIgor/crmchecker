@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using HtmlAgilityPack;
 
@@ -20,19 +20,43 @@ namespace CrmParser.Parsers
             string request = Download("http://panel.support.voip.astralnalog.ru/table?queue=Q1co-crm");
             HtmlDocument document = new HtmlDocument();
             document.LoadHtml(request);
-            IEnumerable<HtmlNode> innerText = document.GetElementbyId("header").Descendants("tr").Select(x => x.Elements("td")).FirstOrDefault();
-            List<string> result = (from t in innerText select t.InnerHtml).ToList();
+            HtmlNodeCollection headerNodes = document.DocumentNode.SelectNodes(".//*[@id='header']/table/tr/td");
+
+            List<string> result = new List<string>();
+
+            foreach (HtmlNode headerNode in headerNodes)
+            {
+                result.Add(headerNode.InnerHtml);
+            }
+
+            
 
             return result;
         }
 
-        public IEnumerable<IEnumerable<HtmlNode>> GetOperatorsData()
+        public IEnumerable<List<HtmlNode>> GetOperatorsData()
         {
             string request = Download("http://panel.support.voip.astralnalog.ru/table?queue=Q1co-crm");
             HtmlDocument document = new HtmlDocument();
             document.LoadHtml(request);
-            var innerText = document.GetElementbyId("data").Descendants("tr").Select(x => x.Elements("td"));
-            return innerText;
+            HtmlNodeCollection nodes = document.DocumentNode.SelectNodes(".//*[@id='data']/table/tr");
+            List<List<HtmlNode>> list  = new List<List<HtmlNode>>();
+            foreach (HtmlNode node in nodes)
+            {
+                var tds = node.SelectNodes("td");
+                if(tds == null)
+                    continue;
+                List<HtmlNode> htmlNodes = new List<HtmlNode>();
+                foreach (var td in tds)
+                {
+                    htmlNodes.Add(td);
+                }
+                list.Add(htmlNodes);
+            }
+
+
+
+            return list;
         }
 
         /// <summary>
@@ -42,7 +66,7 @@ namespace CrmParser.Parsers
         /// <returns></returns>
         private string Download(string uri)
         {
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(uri);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
             request.Method = "GET";
             string result;
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())

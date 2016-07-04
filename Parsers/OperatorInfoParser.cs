@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using CrmParser.Data;
 using HtmlAgilityPack;
 
@@ -11,12 +10,11 @@ namespace CrmParser.Parsers
         public OperatorInfo GetInfo(string phoneNumber)
         {
             HtmlParser parser = new HtmlParser();
-            IEnumerable<IEnumerable<HtmlNode>> allOperators =  parser.GetOperatorsData();
-            allOperators = allOperators.Skip(1);
-            foreach (var oper in allOperators)
+            IEnumerable<List<HtmlNode>> allOperators =  parser.GetOperatorsData();
+            foreach (List<HtmlNode> oper in allOperators)
             {
-                var o = oper.ToList();
-                if (o.Count != 0 && o[0].InnerHtml == phoneNumber)
+                var o = oper;
+                if (o[0].InnerHtml == phoneNumber)
                 {
                     OperatorInfo operatorInfo = new OperatorInfo();
                     operatorInfo.PhoneNumber = o[0].InnerHtml;
